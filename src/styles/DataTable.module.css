@@ -1,0 +1,20 @@
+.patientDataIntegrate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.tableHeading {
+  padding: 1rem 0 0 1rem;
+  font-size: 22px;
+}
+
+.addPatient {
+  border-radius: 20px;
+  padding: 10px;
+  border: none;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: #54bab9;
+}
