@@ -5,6 +5,8 @@ import EditModal from "./EditModal";
 import AddFormData from "./AddForm";
 import Image from "next/image";
 import searchIcon from "../../../public/resources/search.png";
+import EditBtnIcon from "../../../public/resources/edit.png";
+import DeleteBtnIcon from "../../../public/resources/delete.png";
 
 const initialData = [
   {
@@ -137,16 +139,29 @@ export const DataTable = () => {
     {
       field: "actions",
       headerName: "Actions",
+      sortable: false,
       width: 100,
       renderCell: (params) => (
         <>
-          <button onClick={() => handleEdit(params.row)}>Edit</button>
-          <button onClick={() => handleDelete(params.row.id)}>Delete</button>
+          <button
+            onClick={() => handleEdit(params.row)}
+            className={styles.edit}
+          >
+            <Image src={editLogo} />
+          </button>
+          <button
+            onClick={() => handleDelete(params.row.id)}
+            className={styles.delete}
+          >
+            <Image src={deleteLogo} />
+          </button>
         </>
       ),
     },
   ];
   const searchLogo = searchIcon;
+  const editLogo = EditBtnIcon;
+  const deleteLogo = DeleteBtnIcon;
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem("tableData"));
     if (storedData) {

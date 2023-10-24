@@ -18,3 +18,11 @@
   color: #ffffff;
   background-color: #54bab9;
 }
+.edit,
+.delete {
+  border: none;
+  margin: 0 1rem 0 0;
+  width: 50%;
+  height: 45%;
+  border-radius: 20px;
+}
