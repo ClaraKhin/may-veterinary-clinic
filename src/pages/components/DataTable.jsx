@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import styles from "../../styles/DataTable.module.css";
 import EditModal from "./EditModal";
+import AddFormData from "./AddForm";
+import Image from "next/image";
+import searchIcon from "../../../public/resources/search.png";
 
 const initialData = [
   {
@@ -75,6 +78,22 @@ const initialData = [
 export const DataTable = () => {
   const [showEditForm, setShowEditForm] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
+  const [showAddForm, setShowAddForm] = useState(false);
+  const [genderSelected, setGenderSelected] = useState(undefined);
+  const [query, setQuery] = useState("");
+  const [addFormData, setAddFormData] = useState([
+    {
+      petName: "",
+      pawrent: "",
+      gender: undefined,
+      contact: "",
+      address: "",
+      status: "",
+      breed: "",
+      birthDate: null,
+    },
+  ]);
+
   const [tableData, setTableData] = useState(initialData);
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
@@ -127,7 +146,16 @@ export const DataTable = () => {
       ),
     },
   ];
-
+  const searchLogo = searchIcon;
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem("tableData"));
+    if (storedData) {
+      setTableData(storedData);
+    }
+  }, []);
+  const updateLocalStorage = (data) => {
+    localStorage.setItem("tableData", JSON.stringify(data));
+  };
   const handleDelete = (id) => {
     const updatedRows = tableData.filter((row) => row.id !== id);
     setTableData(updatedRows);
@@ -144,41 +172,92 @@ export const DataTable = () => {
       [field]: value,
     }));
   };
+  const handleShowAddForm = () => {
+    setShowAddForm(true);
+  };
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setAddFormData({ ...addFormData, [name]: value });
+  };
+  const handleGenderOptions = (event) => {
+    const gender = event.target.value;
+    setGenderSelected(gender);
+  };
 
+  const handleAddFormSubmit = (e) => {
+    e.preventDefault();
+    const newPatient = {
+      ...addFormData,
+      id: tableData.length + 1,
+    };
+    setTableData([...tableData, newPatient]);
+    setShowAddForm(false);
+    updateLocalStorage([...tableData, newPatient]);
+  };
+
+  const handleCancelAddForm = () => {
+    setShowAddForm(false);
+  };
   const handleEditFormSubmit = (e) => {
     e.preventDefault();
     Object.assign(
       tableData.find((v) => v.id == selectedRow.id),
       selectedRow
     );
-    console.log(tableData);
+    setShowEditForm(false);
+    updateLocalStorage([...tableData]);
+  };
+  const handleEditCancel = () => {
     setShowEditForm(false);
   };
-  const handleEditCancel = () =>{
-    
-  }
+
+  const handleSearch = (e) => {
+    setQuery(e.target.value);
+  };
+  const filteredData = tableData.filter((row) =>
+    Object.values(row.petName).some((value) =>
+      String(value).toLowerCase().includes(query.toLowerCase())
+    )
+  );
 
   return (
     <div className="patientInfosDisplay">
       <h1 className={styles.tableHeading}>Patient List</h1>
       <div className={styles.patientDataIntegrate}>
         <form>
-          <input type="search" name="search" className={styles.searchInput} />
-          <button type="submit">Search</button>
+          <input
+            type="text"
+            name="search"
+            value={query}
+            onChange={handleSearch}
+            className={styles.searchInput}
+          />
+          <Image src={searchLogo} />
         </form>
-        <button className={styles.addPatient}>+ Add new patient</button>
+        <button className={styles.addPatient} onClick={handleShowAddForm}>
+          + Add new patient
+        </button>
       </div>
+      {showAddForm && (
+        <AddFormData
+          handleInputChange={handleInputChange}
+          handleGenderOptions={handleGenderOptions}
+          handleAddFormSubmit={handleAddFormSubmit}
+          handleCancelAddForm={handleCancelAddForm}
+        />
+      )}
       {showEditForm && (
         <EditModal
           filterColumn={filterColumn}
           handleEditInputChange={handleEditInputChange}
           handleEditFormSubmit={handleEditFormSubmit}
+          handleEditCancel={handleEditCancel}
           selectedRow={selectedRow}
         />
       )}
       <div className="dataDisplay mt-5" style={{ height: 400, width: "100%" }}>
         <DataGrid
-          rows={tableData}
+          rows={filteredData}
           columns={columns}
           initialState={{
             pagination: {
