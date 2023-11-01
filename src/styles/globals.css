@@ -133,3 +133,11 @@ nav .navbar-end .bi-bell-fill {
   color: white;
   font-size: 20px;
 }
+footer {
+  margin-top: 10px;
+  text-align: center;
+}
+footer .source {
+  text-decoration: none;
+  
+}
