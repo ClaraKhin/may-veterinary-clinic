@@ -9,11 +9,11 @@ export const Navbar = () => {
   const userImage = UserImage;
   return (
     <nav className="d-flex">
-      <Image src={logo} alt="navLogo" />
+      <Image src={logo} alt="navLogo" priority={true} />
       <div className="navbar-end ">
         <div className="d-flex align-items-center">
           <a className="pe-4">
-            <i class="bi bi-bell-fill"></i>
+            <i className="bi bi-bell-fill"></i>
           </a>
           <Image src={userImage} alt="userImage" />
         </div>
