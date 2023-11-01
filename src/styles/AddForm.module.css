@@ -3,9 +3,7 @@
   flex-direction: column;
   padding: 3rem;
   width: 35%;
-
   margin: 0 auto;
-
   position: absolute;
   z-index: 5;
   top: 30%;
@@ -29,11 +27,11 @@
 }
 .firstSection {
   display: block;
+  width: 100%;
 }
 .formData {
   display: flex;
-  gap: 20px;
-  width: 30%;
+  gap: 30px;
 }
 .btns {
   display: flex;
@@ -45,7 +43,9 @@
 .inputData {
   border: 1px solid #54bab9;
   margin: 0 0 20px 0;
+  width: 100%;
 }
+
 .female,
 .male {
   display: flex;
@@ -76,4 +76,15 @@
 .cancelBtn:hover {
   background-color: #54bab9;
   columns: #ffff;
+}
+@media (max-width: 700px) {
+  .formData {
+    display: block;
+  }
+  .addForm {
+    width: 80%;
+    margin: 0 auto;
+    top: 15%;
+    left: 8%;
+  }
 }
