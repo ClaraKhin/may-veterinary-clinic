@@ -4,7 +4,6 @@ import Image from "next/image";
 import Logo from "../../../public/resources/Logo(2).png";
 import UserImage from "../../../public/resources/user image.png";
 import notiCon from "../../../public/resources/Notifications.png";
-import { navbar } from "@nextui-org/react";
 
 const Navbar = () => {
   const logo = Logo;
