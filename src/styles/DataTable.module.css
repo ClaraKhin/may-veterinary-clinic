@@ -4,12 +4,36 @@
   justify-content: space-between;
   padding: 0 1rem;
 }
+.searchInput {
+  border-radius: 20px;
+  width: 21vw;
+  background-image: url("../../public/resources/search.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  padding-right: 42px;
+  border: 1px solid rgba(68, 68, 68, 0.5);
+  font-size: 14px;
+}
 
 .tableHeading {
   padding: 1rem 0 0 1rem;
   font-size: 22px;
 }
-
+.sorts {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0.5rem 1rem;
+}
+.status {
+  margin: 0 1rem 0 0;
+  width: 10%;
+  border-radius: 20px;
+  color: rgba(68, 68, 68, 0.5);
+}
+.breeds {
+  border-radius: 20px;
+  color: rgba(68, 68, 68, 0.5);
+}
 .addPatient {
   border-radius: 20px;
   padding: 10px;
