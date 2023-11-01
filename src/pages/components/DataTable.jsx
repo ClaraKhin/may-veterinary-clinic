@@ -289,7 +289,11 @@ export const DataTable = () => {
         </button>
       </div>
       <div className={styles.sorts}>
-        <select onChange={handleSortChange} value={sortOption} className={styles.status}>
+        <select
+          onChange={handleSortChange}
+          value={sortOption}
+          className={styles.status}
+        >
           <option value="statusAll">Stauts All</option>
           {statusOptions.map((option) => (
             <option key={option} value={option}>
@@ -297,7 +301,11 @@ export const DataTable = () => {
             </option>
           ))}
         </select>
-        <select onChange={handlebreedSortChange} value={breedSortOption} className={styles.breeds}>
+        <select
+          onChange={handlebreedSortChange}
+          value={breedSortOption}
+          className={styles.breeds}
+        >
           <option value="breedAll">Breed All</option>
           {breedOptions.map((option) => (
             <option key={option}>{option}</option>
