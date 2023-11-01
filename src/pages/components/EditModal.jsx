@@ -38,7 +38,7 @@ export default function EditModal(props) {
             onClick={props.handleEditFormSubmit}
             className={styles.updateBtn}
           >
-            Update
+            Edit
           </button>
           <button
             onClick={props.handleEditCancel}
