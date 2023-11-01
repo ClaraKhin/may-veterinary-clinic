@@ -14,6 +14,9 @@ const EditModal = (props) => {
           {props.filterColumn &&
             props.filterColumn.map((col) => (
               <div key={col.field} className={styles.editSection}>
+                <label htmlFor={col.field} className={styles.label}>
+                  {col.headerName}:
+                </label>
                 {col.field === "id" ? (
                   <input
                     type="text"
