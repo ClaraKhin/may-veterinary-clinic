@@ -1,37 +1,39 @@
+import React from "react";
 import styles from "../../styles/EditModal.module.css";
 
-export default function EditModal(props) {
+const EditModal = (props) => {
   return (
     <div>
       <form onSubmit={props.handleEditFormSubmit} className={styles.editForm}>
-        {props.filterColumn.map((col) => (
-          <div key={col.field}>
-            <label htmlFor={col.field} className={styles.label}>
-              {col.headerName}:{" "}
-            </label>
-            {col.field === "id" ? (
-              <input
-                type="text"
-                id={col.field}
-                name={col.field}
-                className={styles.inputField}
-                value={props.selectedRow[col.field]}
-                readOnly
-              />
-            ) : (
-              <input
-                type="text"
-                id={col.field}
-                name={col.field}
-                className={styles.inputField}
-                value={props.selectedRow[col.field]}
-                onChange={(e) =>
-                  props.handleEditInputChange(col.field, e.target.value)
-                }
-              />
-            )}
-          </div>
-        ))}
+        {props.filterColumn &&
+          props.filterColumn.map((col) => (
+            <div key={col.field}>
+              <label htmlFor={col.field} className={styles.label}>
+                {col.headerName}:{" "}
+              </label>
+              {col.field === "id" ? (
+                <input
+                  type="text"
+                  id={col.field}
+                  name={col.field}
+                  className={styles.inputField}
+                  value={props.selectedRow[col.field]}
+                  readOnly
+                />
+              ) : (
+                <input
+                  type="text"
+                  id={col.field}
+                  name={col.field}
+                  className={styles.inputField}
+                  value={props.selectedRow[col.field]}
+                  onChange={(e) =>
+                    props.handleEditInputChange(col.field, e.target.value)
+                  }
+                />
+              )}
+            </div>
+          ))}
         <div className={styles.editBtns}>
           <button
             type="submit"
@@ -50,4 +52,5 @@ export default function EditModal(props) {
       </form>
     </div>
   );
-}
+};
+export default EditModal;
