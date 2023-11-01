@@ -77,7 +77,7 @@ const initialData = [
   },
 ];
 
-export const DataTable = () => {
+const DataTable = () => {
   const [showEditForm, setShowEditForm] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
   const [showAddForm, setShowAddForm] = useState(false);
@@ -346,3 +346,4 @@ export const DataTable = () => {
     </div>
   );
 };
+export default DataTable;
