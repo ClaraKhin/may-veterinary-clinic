@@ -14,7 +14,19 @@
   box-sizing: border-box;
   box-shadow: 5px 8px 20px;
 }
-
+.headings {
+  padding: 0 0 1rem 0;
+}
+.formHeading {
+  color: #54bab9;
+  font-size: 18px;
+  text-align: center;
+}
+.formSubHeading {
+  color: #54bab9;
+  font-size: 12px;
+  text-align: center;
+}
 .firstSection {
   display: block;
 }
@@ -36,7 +48,14 @@
 }
 .female,
 .male {
-  margin: 0 0 20px 0;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 15px 0;
+}
+.gender {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 .date,
 .address {
@@ -48,6 +67,7 @@
   width: 80px;
   height: 35px;
   border: 1px solid #54bab9;
+  font-size: 14px;
 }
 .saveBtn:hover {
   background-color: #54bab9;
