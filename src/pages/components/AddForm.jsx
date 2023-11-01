@@ -2,6 +2,12 @@ import styles from "../../styles/AddForm.module.css";
 export default function AddFormData(props) {
   return (
     <form className={styles.addForm}>
+      <div className={styles.headings}>
+        <h3 className={styles.formHeading}>Add New Patient</h3>
+        <h4 className={styles.formSubHeading}>
+          Enter new patient information below
+        </h4>
+      </div>
       <div className={styles.formData}>
         <div className={styles.firstSection}>
           <input
@@ -18,22 +24,31 @@ export default function AddFormData(props) {
             placeholder="Enter the Pet's pawrent"
             className={styles.inputData}
           />
-          <input
-            type="radio"
-            name="gender"
-            value="female"
-            onSelect={props.genderSelected === "female"}
-            onChange={props.handleGenderOptions}
-          />
-          <label className={styles.female}>Female</label>
-          <input
-            type="radio"
-            name="gender"
-            value="male"
-            onSelect={props.genderSelected === "male"}
-            onChange={props.handleGenderOptions}
-          />
-          <label className={styles.male}>Male</label>
+          <div className={styles.gender}>
+            <div className={styles.female}>
+              <input
+                type="radio"
+                name="gender"
+                value="female"
+                id="female"
+                onSelect={props.genderSelected === "female"}
+                onChange={props.handleGenderOptions}
+              />
+              <label className={styles.female}>Female</label>
+            </div>
+            <div className={styles.male}>
+              <input
+                type="radio"
+                name="gender"
+                value="male"
+                id="male"
+                onSelect={props.genderSelected === "male"}
+                onChange={props.handleGenderOptions}
+              />
+              <label className={styles.male}>Male</label>
+            </div>
+          </div>
+
           <input
             type="text"
             name="contact"
@@ -64,7 +79,12 @@ export default function AddFormData(props) {
             placeholder="Enter your pet's breed"
             className={styles.inputData}
           />
-          <input type="date" name="date" className={styles.date} />
+          <input
+            type="date"
+            name="birthDate"
+            onChange={props.handleInputChange}
+            className={styles.date}
+          />
         </div>
       </div>
 
