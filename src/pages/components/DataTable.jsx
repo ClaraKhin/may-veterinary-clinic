@@ -130,7 +130,7 @@ const DataTable = () => {
     },
     {
       field: "contact",
-      headerName: "Contact Phone No",
+      headerName: "Contact",
       width: 160,
     },
 
