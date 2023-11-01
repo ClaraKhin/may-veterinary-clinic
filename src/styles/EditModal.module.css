@@ -1,24 +1,35 @@
 .editForm {
   width: 50%;
-  height: 90%;
-  background-color: beige;
+  height: 93%;
+  background-color: rgb(255, 255, 241);
   position: absolute;
   z-index: 5;
-  top: 6%;
+  top: 3%;
   left: 25%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  padding: 0.5rem 0 2rem 0;
   box-sizing: border-box;
   box-shadow: 5px 8px 20px;
+}
+
+.editTitle {
+  color: #54bab9;
+  font-size: 18px;
+}
+.editSubTitle {
+  color: #444444;
+  font-size: 12px;
+}
+.editSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .inputField {
   border: 1px solid #54bab9;
   font-size: 14px;
   padding: 8px;
-  margin: 0 0 20px 0;
+  margin: 0.5rem auto;
   width: 25rem;
 }
 .label {
@@ -45,4 +56,19 @@
 .updateCancelBtn:hover {
   background-color: #54bab9;
   color: #ffff;
+}
+@media (max-width: 700px) {
+  .editForm {
+    width: 85%;
+    height: 93%;
+
+    position: absolute;
+    z-index: 5;
+    top: 3%;
+    left: 10%;
+  }
+  .inputField {
+    margin: 0.5rem auto;
+    width: 18rem;
+  }
 }
