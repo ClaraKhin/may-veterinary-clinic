@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { DataTable } from "./components/DataTable";
+import DataTable from "./components/DataTable";
 import styles from "@/styles/Home.module.css";
 
 export default function Home() {
