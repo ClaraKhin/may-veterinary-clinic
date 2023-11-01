@@ -1,5 +1,6 @@
+import React from "react";
 import styles from "../../styles/AddForm.module.css";
-export default function AddFormData(props) {
+const AddFormData = (props) => {
   return (
     <form className={styles.addForm}>
       <div className={styles.headings}>
@@ -105,4 +106,5 @@ export default function AddFormData(props) {
       </div>
     </form>
   );
-}
+};
+export default AddFormData;
