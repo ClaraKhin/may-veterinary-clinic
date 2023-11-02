@@ -5,10 +5,10 @@ const Footer = () => {
     <footer>
       <a
         href={"https://github.com/ClaraKhin/may-veterinary-clinic"}
-        className="source"
+        className="gitSource"
         target="_blank"
       >
-        I'm The Source Code😁
+        I am The Source Code😁
       </a>
     </footer>
   );
