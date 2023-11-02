@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer>
       <a
-        href={"https://github.com/ClaraKhin/may-veterinary-clinic"}
+        href={"https://github.com/ClaraKhin/may-veterinary-clinic.git"}
         className="gitSource"
         target="_blank"
       >
