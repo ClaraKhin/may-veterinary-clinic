@@ -1,16 +1,15 @@
 import React from "react";
-import Link from "next/link";
 
 const Footer = () => {
   return (
     <footer>
-      <Link
+      <a
         href={"https://github.com/ClaraKhin/may-veterinary-clinic"}
         className="source"
         target="_blank"
       >
         I'm The Source Code😁
-      </Link>
+      </a>
     </footer>
   );
 };
